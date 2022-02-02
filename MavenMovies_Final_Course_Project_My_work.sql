@@ -19,12 +19,6 @@ FROM store
  
 
 
-
-
-
-
-
-
 	
 /*
 2.	I would like to get a better understanding of all of the inventory that would come along with the business. 
@@ -33,7 +27,12 @@ the inventory_id, the name of the film, the film’s rating, its rental rate and
 */
 
 
+SELECT *
 
+
+
+
+FROM inventory
 
 
 
