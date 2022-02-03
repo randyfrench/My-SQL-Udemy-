@@ -50,7 +50,11 @@ of your inventory. We would like to know how many inventory items you have with 
 */
 
 
+SELECT *
 
+
+
+FROM inventory
 
 
 
@@ -69,7 +73,11 @@ sliced by store and film category.
 */ 
 
 
+SELECT * 
 
+
+
+FROM film
 
 
 
