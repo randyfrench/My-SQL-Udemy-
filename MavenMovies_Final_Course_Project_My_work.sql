@@ -27,22 +27,16 @@ the inventory_id, the name of the film, the film’s rating, its rental rate and
 */
 
 
-SELECT *
-
-
-
-
+SELECT
+    inventory.store_id,
+    inventory.inventory_id,
+    film.title,
+    film.rating,
+    film.rental_rate,
+    film.replacement_cost
 FROM inventory
-
-
-
-
-
-
-
-
-
-
+     LEFT JOIN film
+         ON inventory.film_id = film.film_id
 
 /* 
 3.	From the same list of films you just pulled, please roll that data up and provide a summary level overview 
