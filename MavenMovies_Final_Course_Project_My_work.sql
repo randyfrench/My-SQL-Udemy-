@@ -38,24 +38,25 @@ FROM inventory
      LEFT JOIN film
          ON inventory.film_id = film.film_id
 
+;
+
 /* 
 3.	From the same list of films you just pulled, please roll that data up and provide a summary level overview 
 of your inventory. We would like to know how many inventory items you have with each rating at each store. 
 */
 
 
-SELECT *
-
-
-
+SELECT 
+    inventory.store_id,
+    film.rating,
+    COUNT(inventory_id) AS inventory_items
 FROM inventory
-
-
-
-
-
-
-
+    LEFT JOIN film
+        ON inventory.film_id = film.film_id
+GROUP BY
+    inventory.store_id,
+    film.rating
+;
 
 
 
