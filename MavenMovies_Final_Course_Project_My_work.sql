@@ -68,11 +68,27 @@ sliced by store and film category.
 */ 
 
 
-SELECT * 
+SELECT 
+    store_id,
+    category.name AS category,
+    COUNT(inventory.inventory_id) AS films,
+    AVG(film.replacement_cost) AS avg_replacement_cost,
+    SUM(film.replacement_cost) AS total_replacement_cost
+
+FROM inventory
+    LEFT JOIN film
+        ON inventory.film_id = film.film_id
+    LEFT JOIN film_category
+        ON film.film_id = film_category.film_id
+    LEFT JOIN category
+        ON categorty.category_id = film_category.category_id
+        
+GROUP BY
+    store_id,
+    category.name
 
 
-
-FROM film
+;
 
 
 
