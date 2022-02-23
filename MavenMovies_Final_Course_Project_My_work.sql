@@ -87,14 +87,10 @@ GROUP BY
     store_id,
     category.name
 
+ORDER BY
+    SUM(film.replacement_cost) DESC
 
 ;
-
-
-
-
-
-
 
 
 
@@ -105,7 +101,21 @@ and their full addresses – street address, city, and country.
 */
 
 
-
+SELECT
+    customer.first_name,
+    customer.last_name,
+    customer.store_id,
+    customer.active,
+    address.address,
+    city.city,
+    country.country
+    
+FROM customer
+    LEFT JOIN address ON customer.address_id = address.address_id
+    LEFT JOIN city ON address.city_id = city.city_id
+    LEFT JOIN country ON city.country_id = country.country_id
+    
+;
 
 
 
