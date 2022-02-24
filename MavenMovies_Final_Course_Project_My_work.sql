@@ -118,13 +118,6 @@ FROM customer
 ;
 
 
-
-
-
-
-
-
-
 /*
 6.	We would like to understand how much your customers are spending with you, and also to know 
 who your most valuable customers are. Please pull together a list of customer names, their total 
@@ -133,16 +126,24 @@ see this ordered on total lifetime value, with the most valuable customers at th
 */
 
 
+SELECT
+    customer.first_name,
+    customer.last_name,
+    COUNT(rental.rental_id) AS total_rentals,
+    SUM(payment.amount) AS total_payment_amount
 
+FROM customer
+    LEFT JOIN rental ON customer.customer_id = rental.customer_id
+    LEFT JOIN payment ON rental.rental_id = payment.rental_id
+    
+GROUP BY
+    customer.first_name,
+    customer.last_name
 
-
-
-
-
-
-
-
-
+ORDER BY
+    SUM(payment.amount) DESC
+    
+;    
     
 /*
 7. My partner and I would like to get to know your board of advisors and any current investors.
