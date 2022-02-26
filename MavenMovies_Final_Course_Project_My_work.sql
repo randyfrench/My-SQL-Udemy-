@@ -153,7 +153,21 @@ it would be good to include which company they work with.
 */
 
 
+SELECT
+    'investor' AS type,
+    first_name,
+    last_name,
+    company_name
+FROM investor
 
+UNION
+
+SELECT
+    'advisor' AS type,
+    first_name,
+    last_name,
+    'N/A'
+FROM advisor;
 
 
 
