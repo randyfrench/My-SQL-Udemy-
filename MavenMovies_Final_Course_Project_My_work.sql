@@ -188,3 +188,11 @@ SELECT
     AVG(CASE WHEN actor_award.actor_id IS NULL THEN 0 ELSE 1 END) AS pct_w_one_film
     
 FROM actor_award
+
+GROUP BY
+    CASE
+        WHEN actor_award.awards = 'Emmy, Oscar, Tony' THEN '3 awards'
+        WHEN actor_award.awards IN ('Emmy, Oscar', 'Emmy, Tony' 'Oscar, Tony') THEN '2 awards'
+        ELSE '1 award'
+        
+    END
